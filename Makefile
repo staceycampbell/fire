@@ -1,13 +1,8 @@
-CC= cc
-CFLAGS= -O -DM_TERMINFO -UM_TERMCAP
-LDFLAGS= -O
-OBJS= fire.o
-
-#Unix
-# LDLIBS= -lcurses -lm
-
-#Xenix
-LDLIBS= -ltinfo -lm
+CC := cc
+CFLAGS := -O2
+LDFLAGS := -O
+OBJS := fire.o
+LDLIBS := -lcurses -lm
 
 fire: $(OBJS)
 	$(CC) $(LDFLAGS) fire.o -o fire $(LDLIBS)
