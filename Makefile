@@ -1,5 +1,5 @@
 CC := cc
-CFLAGS := -O2
+CFLAGS := -Wall -O2
 LDFLAGS := -O
 OBJS := fire.o
 LDLIBS := -lcurses -lm

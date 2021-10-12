@@ -5,6 +5,7 @@
 #include <math.h>
 #include <curses.h>
 #include <string.h>
+#include <time.h>
 
 #ifndef COLOR_BLACK
 #define start_color()
@@ -16,9 +17,9 @@
 #define SIN_TABLE_SIZE 350
 #define COLOR_MIXED -1
 #define TABLE_SCALE(val) ((int)(val / M_PI * SIN_TABLE_SIZE))
-#define BOUNDCHAR(win, y, x, char) \
-	(((y) >= 0 && (y) < LINES && (x) >= 0 && (x) < COLS) ? \
-		mvwaddch((win), (y), (x), (char)) : 0)
+#define BOUNDCHAR(win, y, x, char)				\
+	(((y) >= 0 && (y) < LINES && (x) >= 0 && (x) < COLS) ?	\
+	 mvwaddch((win), (y), (x), (char)) : 0)
 #define PAT_RAND_SEQ	0x01
 
 typedef struct particle_t
@@ -272,7 +273,6 @@ main(int argc, char *argv[])
 	object_list_t *top;
 	time_t show_over;
 
-	nice(4);
 	printf("wait.");
 	fflush(stdout);
 	DoSinTable(sin_table);
