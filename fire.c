@@ -12,9 +12,9 @@
 #define COLOR_PAIR(a) 0
 #endif
 
-#define PART_COUNT 10
-#define PART_VARIANCE 5
-#define SIN_TABLE_SIZE 350
+#define PART_COUNT 40
+#define PART_VARIANCE 10
+#define SIN_TABLE_SIZE 512
 #define COLOR_MIXED -1
 #define TABLE_SCALE(val) ((int)(val / M_PI * SIN_TABLE_SIZE))
 #define BOUNDCHAR(win, y, x, char)                              \
@@ -164,6 +164,7 @@ DoObjectList(WINDOW * win, double *sin_table, object_list_t ** top)
                 if (old->object->done_count >= old->object->part_count || old->object->life < 0)
                         DeleteObject(old, top);
         }
+	BOUNDCHAR(win, 0, 0, ' ');
         usleep(1000 * 100);
 }
 
